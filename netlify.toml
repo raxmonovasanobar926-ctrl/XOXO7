@@ -1,0 +1,32 @@
+# Netlify Configuration for XOXO Telegram Mini App & Web Client
+
+[build]
+  base = "frontend"
+  publish = "dist"
+  command = "npm run build"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# Telegram Mini App & Security Headers
+# CRITICAL: Telegram Mini Apps are rendered within iframes (web.telegram.org, desktop, mobile).
+# Therefore frame-ancestors must allow Telegram domains, and X-Frame-Options must not be DENY.
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "ALLOWALL"
+    Content-Security-Policy = "frame-ancestors 'self' https://web.telegram.org https://*.telegram.org telegram:;"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+# Cache static assets for fast loading
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Single Page Application (SPA) fallback
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

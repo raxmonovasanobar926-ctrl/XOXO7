@@ -1,0 +1,41 @@
+{
+  "name": "xoxo-frontend",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "check-i18n": "node scripts/check-i18n.js",
+    "check-emoji": "node scripts/check-emoji.js",
+    "check-tokens": "node scripts/check-design-tokens.js"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.117.2",
+    "canvas-confetti": "^1.9.4",
+    "clsx": "^2.1.1",
+    "framer-motion": "^12.4.7",
+    "i18next": "^26.4.2",
+    "lucide-react": "^0.475.0",
+    "pngjs": "^7.0.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-i18next": "^17.0.15",
+    "socket.io-client": "^4.8.1",
+    "tailwind-merge": "^3.0.1"
+  },
+  "devDependencies": {
+    "@types/canvas-confetti": "^1.9.0",
+    "@types/node": "^22.13.4",
+    "@types/react": "^19.0.10",
+    "@types/react-dom": "^19.0.4",
+    "@vitejs/plugin-react": "^4.3.4",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.5.2",
+    "sharp": "^0.35.5",
+    "tailwindcss": "^3.4.17",
+    "typescript": "^5.7.3",
+    "vite": "^6.1.0"
+  }
+}

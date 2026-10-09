@@ -1,0 +1,103 @@
+/* Premium LIQUID GLASS Design System Tokens */
+:root {
+  /* Surface and Background - Deep Obsidian Liquid Glass Canvas */
+  --bg-base: #0B0E17;
+  --bg-gradient: linear-gradient(180deg, #080B13 0%, #101524 50%, #0B0E17 100%);
+  --bg-grid: rgba(200, 215, 255, 0.07);
+  --grid-size: 36px;
+
+  /* Typography Colors - High-Contrast Liquid Glass Text */
+  --text-main: #F8FAFC;
+  --text-secondary: #CBD5E1;
+  --text-muted: #94A3B8;
+  --text-white: #FFFFFF;
+
+  /* Premium Liquid Glass Material Tokens */
+  --glass-bg: linear-gradient(180deg, rgba(28, 35, 54, 0.78) 0%, rgba(15, 20, 34, 0.84) 100%);
+  --glass-bg-subtle: linear-gradient(180deg, rgba(28, 35, 54, 0.50) 0%, rgba(15, 20, 34, 0.52) 100%);
+  --glass-border: rgba(255, 255, 255, 0.15);
+  --glass-border-subtle: rgba(255, 255, 255, 0.08);
+  --glass-shadow: 0 16px 40px -4px rgba(0, 0, 0, 0.65), 0 1px 1px 0 rgba(255, 255, 255, 0.14) inset;
+  --glass-shadow-lg: 0 24px 56px -8px rgba(0, 0, 0, 0.75), 0 1.5px 2px 0 rgba(255, 255, 255, 0.22) inset;
+  --glass-specular: rgba(255, 255, 255, 0.40);
+  --glass-blur: 26px;
+  --glass-saturate: 190%;
+
+  /* Vivid Neon Liquid Accents */
+  --accent-purple: #8B5CF6;
+  --accent-purple-light: rgba(139, 92, 246, 0.18);
+  --accent-purple-border: rgba(139, 92, 246, 0.32);
+  --accent-purple-glow: rgba(139, 92, 246, 0.30);
+
+  --accent-blue: #38BDF8;
+  --accent-blue-light: rgba(56, 189, 248, 0.18);
+  --accent-blue-border: rgba(56, 189, 248, 0.32);
+
+  --accent-rose: #FB7185;
+  --accent-rose-light: rgba(251, 113, 133, 0.18);
+  --accent-rose-border: rgba(251, 113, 133, 0.32);
+
+  --accent-gold: #FBBF24;
+  --accent-gold-light: rgba(251, 191, 36, 0.18);
+  --accent-gold-border: rgba(251, 191, 36, 0.32);
+
+  --accent-emerald: #34D399;
+  --accent-emerald-light: rgba(52, 211, 153, 0.18);
+
+  /* Highlight pill */
+  --highlight-bg: rgba(139, 92, 246, 0.20);
+  --highlight-border: rgba(139, 92, 246, 0.35);
+
+  /* Modal Scrim & Solid backing */
+  --scrim-bg: rgba(0, 0, 0, 0.78);
+  --modal-bg: linear-gradient(180deg, rgba(22, 28, 44, 0.98) 0%, rgba(14, 18, 30, 0.99) 100%);
+  --modal-border: rgba(255, 255, 255, 0.16);
+}
+
+.dark {
+  /* Explicit dark mode mirrors liquid glass root */
+  --bg-base: #0B0E17;
+  --bg-gradient: linear-gradient(180deg, #080B13 0%, #101524 50%, #0B0E17 100%);
+  --bg-grid: rgba(200, 215, 255, 0.07);
+  --grid-size: 36px;
+
+  --text-main: #F8FAFC;
+  --text-secondary: #CBD5E1;
+  --text-muted: #94A3B8;
+  --text-white: #FFFFFF;
+
+  --glass-bg: linear-gradient(180deg, rgba(28, 35, 54, 0.78) 0%, rgba(15, 20, 34, 0.84) 100%);
+  --glass-bg-subtle: linear-gradient(180deg, rgba(28, 35, 54, 0.50) 0%, rgba(15, 20, 34, 0.52) 100%);
+  --glass-border: rgba(255, 255, 255, 0.15);
+  --glass-border-subtle: rgba(255, 255, 255, 0.08);
+  --glass-shadow: 0 16px 40px -4px rgba(0, 0, 0, 0.65), 0 1px 1px 0 rgba(255, 255, 255, 0.14) inset;
+  --glass-shadow-lg: 0 24px 56px -8px rgba(0, 0, 0, 0.75), 0 1.5px 2px 0 rgba(255, 255, 255, 0.22) inset;
+  --glass-specular: rgba(255, 255, 255, 0.40);
+
+  --accent-purple: #8B5CF6;
+  --accent-purple-light: rgba(139, 92, 246, 0.18);
+  --accent-purple-border: rgba(139, 92, 246, 0.32);
+  --accent-purple-glow: rgba(139, 92, 246, 0.30);
+
+  --accent-blue: #38BDF8;
+  --accent-blue-light: rgba(56, 189, 248, 0.18);
+  --accent-blue-border: rgba(56, 189, 248, 0.32);
+
+  --accent-rose: #FB7185;
+  --accent-rose-light: rgba(251, 113, 133, 0.18);
+  --accent-rose-border: rgba(251, 113, 133, 0.32);
+
+  --accent-gold: #FBBF24;
+  --accent-gold-light: rgba(251, 191, 36, 0.18);
+  --accent-gold-border: rgba(251, 191, 36, 0.32);
+
+  --accent-emerald: #34D399;
+  --accent-emerald-light: rgba(52, 211, 153, 0.18);
+
+  --highlight-bg: rgba(139, 92, 246, 0.20);
+  --highlight-border: rgba(139, 92, 246, 0.35);
+
+  --scrim-bg: rgba(0, 0, 0, 0.78);
+  --modal-bg: linear-gradient(180deg, rgba(22, 28, 44, 0.98) 0%, rgba(14, 18, 30, 0.99) 100%);
+  --modal-border: rgba(255, 255, 255, 0.16);
+}

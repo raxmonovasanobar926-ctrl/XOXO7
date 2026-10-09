@@ -1,0 +1,293 @@
+@import './tokens.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
+  background: var(--bg-gradient);
+  background-attachment: fixed;
+  color: var(--text-main);
+  font-family: 'Outfit', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  transition: background 0.4s ease, color 0.3s ease;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   LIQUID GLASS MATERIAL UTILITIES (Apple style)
+   ═══════════════════════════════════════════════════════════ */
+
+/* Base Glass Surface */
+.glass-surface,
+.glass-panel,
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  position: relative;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Subtle Glass Surface for cards or nested containers */
+.glass-subtle {
+  background: var(--glass-bg-subtle);
+  backdrop-filter: blur(12px) saturate(140%);
+  -webkit-backdrop-filter: blur(12px) saturate(140%);
+  border: 1px solid var(--glass-border-subtle);
+  box-shadow: 0 4px 16px -2px rgba(30, 25, 55, 0.04);
+}
+
+/* Specular Highlight Rim */
+.specular-rim {
+  position: relative;
+}
+.specular-rim::before {
+  content: '';
+  position: absolute;
+  top: 1px;
+  left: 12px;
+  right: 12px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, var(--glass-specular) 50%, transparent 100%);
+  border-radius: 9999px;
+  pointer-events: none;
+  opacity: 0.9;
+}
+
+/* Fallback for browsers / WebViews lacking backdrop-filter */
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .glass-surface,
+  .glass-panel,
+  .glass-card {
+    background: #FFFFFF !important;
+  }
+  .dark .glass-surface,
+  .dark .glass-panel,
+  .dark .glass-card {
+    background: #151A28 !important;
+  }
+}
+
+/* Liquid Glass Highlight Pill (Like "Liquid Glass" in the reference image) */
+.glass-highlight {
+  display: inline-block;
+  padding: 0.15em 0.55em;
+  background: var(--highlight-bg);
+  border: 1px solid var(--highlight-border);
+  border-radius: 9999px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 2px 8px -1px rgba(110, 86, 207, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+/* Glass Interactive Buttons */
+.glass-button-primary {
+  background: linear-gradient(135deg, #6E56CF 0%, #5B44B8 100%);
+  color: #FFFFFF;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  box-shadow: 0 4px 14px -1px rgba(110, 86, 207, 0.35), inset 0 1px 1px rgba(255, 255, 255, 0.4);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.glass-button-primary:hover {
+  filter: brightness(1.05);
+  box-shadow: 0 6px 20px -1px rgba(110, 86, 207, 0.45), inset 0 1px 1px rgba(255, 255, 255, 0.5);
+  transform: translateY(-1px);
+}
+.glass-button-primary:active {
+  transform: scale(0.98) translateY(0);
+  box-shadow: 0 2px 8px -1px rgba(110, 86, 207, 0.3), inset 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.glass-button-secondary {
+  background: var(--glass-bg-subtle);
+  color: var(--text-main);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: var(--glass-shadow);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.glass-button-secondary:hover {
+  background: var(--glass-bg);
+  transform: translateY(-1px);
+}
+.glass-button-secondary:active {
+  transform: scale(0.98) translateY(0);
+}
+
+/* Liquid Glass Input */
+.glass-input {
+  background: var(--glass-bg-subtle);
+  border: 1px solid var(--glass-border-subtle);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: var(--text-main);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.04);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.glass-input:focus {
+  outline: none;
+  border-color: var(--accent-purple);
+  box-shadow: 0 0 0 3px var(--accent-purple-light);
+}
+
+/* Scrim Backdrop for Modals (Prevents Glass-on-Glass Noise) */
+.glass-scrim {
+  background: var(--scrim-bg);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* Modal Solid-Backed Glass Container (Guarantees 100% WCAG Contrast) */
+.glass-modal-card {
+  background: var(--modal-bg);
+  border: 1px solid var(--modal-border);
+  box-shadow: 0 24px 60px -12px rgba(15, 23, 42, 0.25), 0 1px 1.5px rgba(255, 255, 255, 0.9) inset;
+}
+
+/* Refraction Distortion using SVG Filter (Hero element only) */
+.liquid-refraction {
+  filter: url(#liquid-distort);
+}
+
+/* Floating animation for subtle orbs */
+@keyframes orbFloatSlow {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(8px, -14px, 0) scale(1.02);
+  }
+}
+
+@keyframes orbFloatReverse {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(-10px, 12px, 0) scale(0.98);
+  }
+}
+
+.animate-orb-slow {
+  animation: orbFloatSlow 18s ease-in-out infinite;
+  will-change: transform;
+}
+
+.animate-orb-reverse {
+  animation: orbFloatReverse 22s ease-in-out infinite;
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-orb-slow,
+  .animate-orb-reverse {
+    animation: none !important;
+  }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.3);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(148, 163, 184, 0.5);
+}
+
+/* Telegram Bottom Bar Safe Spacing */
+.safe-bottom-padding {
+  padding-bottom: calc(76px + var(--safe-bottom));
+}
+
+/* Game board cell fixed aspect ratio guarantee */
+.game-cell {
+  aspect-ratio: 1 / 1;
+  box-sizing: border-box;
+}
+
+/* Soft transitions */
+.transition-smooth {
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   APPLE iOS 18 COLLECTIBLE & SPATIAL GLASS UTILITIES
+   ═══════════════════════════════════════════════════════════ */
+
+.ios-glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  border-radius: 26px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.28s ease, border-color 0.28s ease;
+}
+
+.ios-glass-card:hover {
+  transform: translateY(-2px) scale(1.015);
+  box-shadow: var(--glass-shadow-lg);
+  border-color: rgba(255, 255, 255, 0.95);
+}
+
+.dark .ios-glass-card:hover {
+  border-color: rgba(255, 255, 255, 0.24);
+}
+
+/* Prismatic holographic sheen overlay */
+.ios-holographic-sheen {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.35) 0%,
+    rgba(255, 255, 255, 0) 40%,
+    rgba(147, 197, 253, 0.15) 60%,
+    rgba(216, 180, 254, 0.2) 100%
+  );
+  pointer-events: none;
+  opacity: 0.85;
+}
+
+/* Dynamic celebratory unboxing beam animation */
+@keyframes iosUnboxingRotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.animate-ios-halo {
+  animation: iosUnboxingRotate 20s linear infinite;
+}
+
+@keyframes iosShimmerSlide {
+  0% { transform: translateX(-150%) skewX(-20deg); }
+  100% { transform: translateX(250%) skewX(-20deg); }
+}
+
+.animate-ios-shimmer {
+  animation: iosShimmerSlide 3.5s ease-in-out infinite;
+}
+

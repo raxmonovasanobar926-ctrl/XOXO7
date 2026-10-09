@@ -1,0 +1,25 @@
+{
+  "name": "xoxo-game",
+  "version": "1.0.0",
+  "private": true,
+  "description": "XOXO - Real-time Vanishing Tic-Tac-Toe & Telegram Mini App",
+  "scripts": {
+    "build": "cd frontend && npm run build",
+    "build:frontend": "cd frontend && npm run build",
+    "build:backend": "cd backend && npm run build",
+    "dev": "npx concurrently -n backend,frontend -c green,cyan \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "dev:frontend": "cd frontend && npm run dev",
+    "dev:backend": "cd backend && npm run dev",
+    "tunnel": "ssh -o StrictHostKeyChecking=no -R 80:localhost:5173 nokey@localhost.run",
+    "notify": "node backend/scripts/notify_tunnel.js",
+    "bot": "node backend/scripts/start_bot_and_tunnel.mjs"
+  },
+  "keywords": [
+    "telegram-mini-app",
+    "tic-tac-toe",
+    "game",
+    "realtime",
+    "supabase",
+    "netlify"
+  ]
+}
