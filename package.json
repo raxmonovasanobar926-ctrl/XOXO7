@@ -7,6 +7,7 @@
     "build": "cd frontend && npm run build",
     "build:frontend": "cd frontend && npm run build",
     "build:backend": "cd backend && npm run build",
+    "start": "cd backend && npm start",
     "dev": "npx concurrently -n backend,frontend -c green,cyan \"npm run dev:backend\" \"npm run dev:frontend\"",
     "dev:frontend": "cd frontend && npm run dev",
     "dev:backend": "cd backend && npm run dev",

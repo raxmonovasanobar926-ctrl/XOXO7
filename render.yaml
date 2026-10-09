@@ -1,0 +1,25 @@
+services:
+  - type: web
+    name: xoxo-backend
+    env: node
+    plan: free
+    region: frankfurt
+    buildCommand: cd backend && npm install && npm run build
+    startCommand: cd backend && npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 3001
+      - key: BOT_TOKEN
+        sync: false
+      - key: WEBAPP_URL
+        sync: false
+      - key: JWT_SECRET
+        generateValue: true
+      - key: SUPER_ADMIN_TELEGRAM_ID
+        sync: false
+      - key: INITIAL_TOKENS
+        value: "25"
+      - key: REFERRAL_BONUS
+        value: "5"
