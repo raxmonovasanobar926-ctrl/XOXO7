@@ -76,6 +76,19 @@ export function setupTelegramBot(): Telegraf | null {
         { command: 'paysupport', description: 'Payment Support' },
         { command: 'terms', description: 'Terms of Service' },
       ], { language_code: 'en' }).catch(() => {});
+
+      if (config.webAppUrl && config.webAppUrl.startsWith('https://')) {
+        await (bot.telegram as any).setChatMenuButton({
+          menu_button: {
+            type: 'web_app',
+            text: 'Play XOXO',
+            web_app: { url: config.webAppUrl }
+          }
+        }).catch((err: any) => {
+          console.warn('[Bot] Note: setChatMenuButton error:', err?.message || err);
+        });
+        console.log(`[Bot] Telegram Chat Menu Button configured for: ${config.webAppUrl}`);
+      }
     } catch (e) {
       console.warn('[Bot] Note: Localized bot commands registration:', e);
     }

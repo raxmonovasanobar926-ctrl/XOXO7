@@ -40,7 +40,7 @@ function updateEnvFile(filePath, key, val) {
 }
 
 const envVars = { ...getEnvMap(backendEnvPath), ...getEnvMap(envPath) };
-const botToken = envVars.BOT_TOKEN || '8538420353:AAFyn4LIthhpDndT1wJbfVnbsV-zWsXwzAE';
+const botToken = envVars.BOT_TOKEN || '8925095336:AAGhcQ9bkUgKPH8K07o7yuZbl8nr_IoWRRo';
 const chatId = envVars.SUPER_ADMIN_TELEGRAM_ID || '5252756017';
 
 // 2. Start Cloudflare Tunnel

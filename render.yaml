@@ -1,16 +1,14 @@
 services:
   - type: web
-    name: xoxo-backend
+    name: xoxo
     env: node
     plan: free
     region: frankfurt
-    buildCommand: cd backend && npm install && npm run build
-    startCommand: cd backend && npm start
+    buildCommand: npm run build
+    startCommand: npm start
     envVars:
       - key: NODE_ENV
         value: production
-      - key: PORT
-        value: 3001
       - key: BOT_TOKEN
         sync: false
       - key: WEBAPP_URL

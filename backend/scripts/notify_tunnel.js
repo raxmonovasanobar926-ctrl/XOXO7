@@ -12,7 +12,7 @@ envFile.split('\n').forEach(line => {
   if (key && val) envVars[key.trim()] = val.join('=').trim();
 });
 
-const botToken = process.env.BOT_TOKEN || envVars.BOT_TOKEN || '8538420353:AAFyn4LIthhpDndT1wJbfVnbsV-zWsXwzAE';
+const botToken = process.env.BOT_TOKEN || envVars.BOT_TOKEN || '8925095336:AAGhcQ9bkUgKPH8K07o7yuZbl8nr_IoWRRo';
 const tunnelUrl = process.argv[2] || process.env.WEBAPP_URL || envVars.WEBAPP_URL || 'https://rating-sounds-decor-became.trycloudflare.com';
 const chatId = process.env.SUPER_ADMIN_TELEGRAM_ID || envVars.SUPER_ADMIN_TELEGRAM_ID || 5252756017;
 
